@@ -53,13 +53,13 @@ Nos anos 90 a computação gráfica passou a ser mais utilizada na indústria do
 
 O desenvolvimento da computação gráfica passou por diversos segmentos relevantes em relação ao nível de sua tecnologia, cada uma com suas características específicas:
 
-### Primeira: ] Início, 1987]
+### Primeira: ]Início, 1987]
 
 A primeira geração traz a estrutura base para a computação gráfica que consiste do uso de triângulos, o polígono com menor número de lados, para traçar a superfície de um objeto através da interligação dos vértices. Essa estrutura passou a ser chamada de [WireFrame][L_WireFrame].
 
 [L_WireFrame]: https://en.wikipedia.org/wiki/Wire-frame_model
 
-### Segunda: ] 1982, 1992]
+### Segunda: ]1982, 1992]
 
 Em seu segundo avanço notável, temos os sólidos com sombreamento obtidos ao se realizar cálculos de luz em cada um dos vértices dos triângulos que compõem o objeto. Operações obtidas através das técnicas de [rasterização][Raster], [Depth Buffer][ZBuffer] e [Color][ColorBlending1] [Blending][ColorBlending2].
 
@@ -67,7 +67,7 @@ Em seu segundo avanço notável, temos os sólidos com sombreamento obtidos ao s
 [ColorBlending1]: https://cglearn.codelight.eu/pub/computer-graphics/blending
 [ColorBlending2]: https://www.cs.csustan.edu/~rsc/SDSU/Color.Blending.pdf
 
-### Terceira: ] 1992, 2000]
+### Terceira: ]1992, 2000]
 
 Em sua terceira geração contamos com a chegada da transformação de coordenadas de [textura][Texture] e o [anti][L_Antialiasing]-[aliasing][L_Aliasing].
 
@@ -75,14 +75,14 @@ Em sua terceira geração contamos com a chegada da transformação de coordenad
 [L_Antialiasing]: https://en.wikipedia.org/wiki/Anti-aliasing
 [L_Aliasing]: https://en.wikipedia.org/wiki/Aliasing
 
-### Quarta: ] 2000, 2002]
+### Quarta: ]2000, 2002]
 
 A quarta geração traz um [sombreamento mais avançado][ShadowVolume], [renderização baseada em imagens][ImageBasedRendering] e superfícies curvas.
 
 [ShadowVolume]: https://en.wikipedia.org/wiki/Shadow_volume
 [ImageBasedRendering]: https://en.wikipedia.org/wiki/Image-based_modeling_and_rendering
 
-### Quinta: ] 2002, Hoje[
+### Quinta: ]2002, Hoje[
 
 Com a quinta e última geração, até o presente momento, os conceitos de [Ray-tracing][RayTracing] e [radiosidade][Radiosidade], e também os conceitos de True [Shadows][Sombras], [path tracing][PathTracing] e [photon][PhotonMapping1] [mapping][PhotonMapping2].
 
