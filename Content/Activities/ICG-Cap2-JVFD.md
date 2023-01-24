@@ -3,7 +3,14 @@
 Aluno: João Vítor Fernandes Dias
 Professor: Luis Antonio Rivera Escriba
 
+<!-- TO-DO
+  https://www.tutorialspoint.com/computer_graphics/2d_transformation.htm
+  Use Matrices
+-->
+
 ## Um Exemplo de OpenGL <!-- Fazer um outro exemplo -->
+
+Abaixo está representado um código em C++
 
 ```c++
   #include <GL/glut.h>
@@ -53,44 +60,77 @@ Professor: Luis Antonio Rivera Escriba
   }
 ```
 
-## Transformações geométricas
+## Transformações geométricas <!-- 2h08 -->
 
-### Translação
+As transformações geométricas são operações matemáticas realizadas em figuras geométricas com o objetivo de manipular a sua posição. Existem diversos tipos de transformações, algumas das quais, serão ilustradas a seguir.
 
-![Teste][IMG_Translação_Figura]
-![Teste][IMG_Translação_Ponto]
-![Teste][IMG_Reflexão_Múltipla]
-![Teste][IMG_Reflexão_X0]
-![Teste][IMG_Reflexão_YX]
-![Teste][IMG_Cisalha]
-![Teste][IMG_Rotação]
-![Teste][IMG_Escala]
-
-[IMG_Translação_Figura]: Cap2-images/Translação_Figura.gif "Translação de figuras"
+<!-- [IMG_Translação_Figura]: Cap2-images/Translação_Figura.gif "Translação de figuras"
 [IMG_Translação_Ponto]: Cap2-images/Translação_Ponto.gif "Translação de ponto"
 [IMG_Reflexão_Múltipla]: Cap2-images/Reflexão_Múltipla.gif "Reflexão ao redor dos eixos"
 [IMG_Reflexão_X0]: Cap2-images/Reflexão_X0.gif "Reflexão em X = 0"
 [IMG_Reflexão_YX]: Cap2-images/Reflexão_YX.gif "Reflexão em Y = X"
 [IMG_Cisalha]: Cap2-images/Cisalha.gif "Cisalha"
 [IMG_Rotação]: Cap2-images/Rotação.gif "Rotação"
-[IMG_Escala]: Cap2-images/Escala.gif "Escala"
+[IMG_Escala]: Cap2-images/Escala.gif "Escala" -->
+
+### Translação
+
+O processo de translação consiste em somar valores a um ponto, assim movendo-o ao longo do plano.
+
+<img src="Cap2-images/Translação_Ponto.gif" height="200">
+
+Este mesmo processo pode ser realizado em figuras geométricas, ao realizar a mesma operação a todos os pontos envolvidos.
+
+<img src="Cap2-images/Translação_Figura.gif" height="200">
+
+<!-- ![Teste][IMG_Translação_Figura]
+![Teste][IMG_Translação_Ponto] -->
 
 ### Rotação
 
+A rotação consiste em modificar radialmente, em uma determinada quantidade de ângulos, a posição de cada um dos pontos da figura.
 
+<img src="Cap2-images/Rotação.gif" height="200">
+
+<!-- ![Teste][IMG_Rotação] -->
 
 ### Escala
 
+A escala é realizada ao multiplicar o valor de cada um dos pontos por um mesmo valor, assim resultando em uma figura maior caso o valor seja maior que um ou uma figura menor caso o valor seja entre 0 e 1.
 
+<img src="Cap2-images/Escala.gif" height="200">
+
+<!-- ![Teste][IMG_Escala] -->
 
 ### Reflexão
 
+A reflexão pode ocorrer de várias maneiras diferentes. Seja ela com base nos eixos cartesianos:
 
+<img src="Cap2-images/Reflexão_X0.gif" height="200">
 
-### Cisalha
+Este caso acima se dá ao multiplicar o valor de X de todos os pontos da figura C por -1.
 
+Já no caso abaixo, primeiro é feita essa operação descrita acima, e logo a seguir os valores multiplicados por -1 são os do eixo Y.
 
+<img src="Cap2-images/Reflexão_Múltipla.gif" height="200">
 
+A reflexão também pode ocorrer através de um eixo definido arbitrariamente:
+
+<img src="Cap2-images/Reflexão_YX.gif" height="200">
+
+<!-- ![Teste][IMG_Reflexão_Múltipla] -->
+<!-- ![Teste][IMG_Reflexão_X0] -->
+<!-- ![Teste][IMG_Reflexão_YX] -->
+
+### Cisalha (skew/shear)
+
+A cisalha ocorre, por exemplo, ao termos como resultado do eixo Y a soma de seu valor inicial com o valor do eixo X multiplicado por uma constante:
+
+${Axis}_1' = {Axis}_1 + {Axis}_2*k$
+
+<img src="Cap2-images/Cisalha.gif" width="200">
+
+<!-- ![Teste][IMG_Cisalha] -->
 
 ## Sistemas de Coordenadas
 
