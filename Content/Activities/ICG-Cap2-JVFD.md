@@ -3,13 +3,14 @@
 Aluno: João Vítor Fernandes Dias
 Professor: Luis Antonio Rivera Escriba
 
-## Um Exemplo de OpenGL
+## Um Exemplo de OpenGL <!-- Fazer um outro exemplo -->
 
 ```c++
   #include <GL/glut.h>
   #include <GL/gl.h>
   #include <iostream>
   using namespace std;
+
   void drawPoint(int x, int y){
     x = x - 250;
     y = 250-y;
@@ -21,6 +22,7 @@ Professor: Luis Antonio Rivera Escriba
     glEnd();
     glFlush();
   }
+
   void mouse(int bin, int state , int x , int y){
     if(bin == GLUT_LEFT_BUTTON &amp;&amp;
     state == GLUT_DOWN) drawPoint(x,y);
@@ -53,11 +55,42 @@ Professor: Luis Antonio Rivera Escriba
 
 ## Transformações geométricas
 
-- Translação
-- Rotação
-- Escala
-- Reflexão
-- Cisalha
+### Translação
+
+![Teste][IMG_Translação_Figura]
+![Teste][IMG_Translação_Ponto]
+![Teste][IMG_Reflexão_Múltipla]
+![Teste][IMG_Reflexão_X0]
+![Teste][IMG_Reflexão_YX]
+![Teste][IMG_Cisalha]
+![Teste][IMG_Rotação]
+![Teste][IMG_Escala]
+
+[IMG_Translação_Figura]: Activities\Cap2-images\Translação_Figura.gif "Translação de figuras"
+[IMG_Translação_Ponto]: Activities\Cap2-images\Translação_Ponto.gif "Translação de ponto"
+[IMG_Reflexão_Múltipla]: Activities\Cap2-images\Reflexão_Múltipla.gif "Reflexão ao redor dos eixos"
+[IMG_Reflexão_X0]: Activities\Cap2-images\Reflexão_X0.gif "Reflexão em X = 0"
+[IMG_Reflexão_YX]: Activities\Cap2-images\Reflexão_YX.gif "Reflexão em Y = X"
+[IMG_Cisalha]: Activities\Cap2-images\Cisalha.gif "Cisalha"
+[IMG_Rotação]: Activities\Cap2-images\Rotação.gif "Rotação"
+[IMG_Escala]: Activities\Cap2-images\Escala.gif "Escala"
+
+### Rotação
+
+
+
+### Escala
+
+
+
+### Reflexão
+
+
+
+### Cisalha
+
+
+
 
 ## Sistemas de Coordenadas
 
