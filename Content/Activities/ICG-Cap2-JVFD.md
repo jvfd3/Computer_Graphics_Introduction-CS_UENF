@@ -109,7 +109,7 @@ A reflexão também pode ocorrer através de um eixo definido arbitrariamente:
 
 A cisalha ocorre, por exemplo, ao termos como resultado do eixo Y a soma de seu valor inicial com o valor do eixo X multiplicado por uma constante:
 
-${Axis}_1' = {Axis}_1 + {Axis}_2*k$
+$${Axis}_1' = {Axis}_1 + {Axis}_2*k$$
 
 <img src="Cap2-images/Cisalha.gif" width="600">
 
@@ -153,9 +153,9 @@ As transformações lineares bidimensionais ocorrem através de cálculos matric
 
 ### Estrutura da multiplicação matricial
 
-$
+$$
   T * P_2 = R
-$
+$$
 
 Onde:
 
@@ -163,38 +163,38 @@ Onde:
 - $P_2$ é a matriz das coordenadas de um ponto genérico a ser transformado especificamente em 2 dimensões.
 - $R$ é a matriz resultante da operação
 
-$
+$$
   T = \begin{bmatrix}
   T_{1,1} &
   T_{1,2} \\
   T_{2,1} &
   T_{2,2}
   \end{bmatrix}
-$
+$$
 
-$
+$$
   P_2 = \begin{bmatrix}
   X \\
   Y
   \end{bmatrix}
-$
+$$
 
-$
+$$
   R = \begin{bmatrix}
     T_{1,1}*X + T_{1,2}*Y \\
     T_{2,1}*X + T_{2,2}*Y
   \end{bmatrix}
-$
+$$
 
 Entretanto, em alguns casos, é necessário utilizar de artifícios matemáticos para calcular de forma adequada as operações bidimensionais. Esses artifícios envolvem utilizar de uma matriz com uma dimensão acima daquela que aparentemente estaríamos calculando, porém apenas adicionando o valor 1 à diagonal principal da nova linha e coluna. Algo similar ocorrendo para os pontos a serem calculados, adicionando a eles uma linha a mais de valor 1.
 
-$
+$$
   T * P_3 = R
-$
+$$
 
 Neste caso, tendo $P_3$ como um ponto genérico representando a segunda dimensão "expandida" à terceira dimensão.
 
-$
+$$
   T = \begin{bmatrix}
   T_{1,1} &
   T_{1,2} &
@@ -206,17 +206,17 @@ $
   0 &
   1
   \end{bmatrix}
-$
+$$
 
-$
+$$
   P_3 = \begin{bmatrix}
   X \\
   Y \\
   1
   \end{bmatrix}
-$
+$$
 
-$
+$$
   R = \begin{bmatrix}
     T_{1,1}*X + T_{1,2}*Y + 0*1 \\
     T_{2,1}*X + T_{2,2}*Y + 0*1 \\
@@ -226,7 +226,7 @@ $
     T_{2,1}*X + T_{2,2}*Y \\
     1
   \end{bmatrix}
-$
+$$
 
 <!-- Adicionar a matriz N-dimensional em LaTeX -->
 
@@ -234,23 +234,23 @@ $
 
 Já vimos anteriormente de que forma a translação funciona, mas agora precisamos estruturá-la de forma matricial da seguinte forma:
 
-$
+$$
   TM = \begin{bmatrix}
   1 && 0 && T_x \\
   0 && 1 && T_y \\
   0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
 $TM$: Translação Matricial
 
-$
+$$
   RTM = TM*P_3 = \begin{bmatrix}
   X + T_x \\
   Y + T_y \\
   1
   \end{bmatrix}
-$
+$$
 
 $RTM$: Resultado da Translação Matricial.
 Temos nesse caso que $T_x$ é o valor da tranlação no eixo X e $T_y$ é o valor da translação no eixo Y.
@@ -259,12 +259,12 @@ Temos nesse caso que $T_x$ é o valor da tranlação no eixo X e $T_y$ é o valo
 
 A rotação matricial envolve a manipulação dos pontos de acordo com um determinado ângulo que aqui será representado como $\theta$.
 
-$
+$$
   RM = \begin{bmatrix}
     \cos(\theta) && - \sin(\theta) \\
     \sin(\theta) && \cos(\theta)
   \end{bmatrix}
-$
+$$
 
 Entretanto, realizar a operação de rotação em uma figura, fará com que ela translade.
 
@@ -284,33 +284,33 @@ A rotação de Euler apresenta uma forma de rotacionar um conjunto de pontos seg
 
 ##### Rotacionar em X (Roll - Rolagem)
 
-$
+$$
   ER_X = \begin{bmatrix}
     1 && 0 && 0 \\
     0 && \cos(\phi) && - \sin(\phi) \\
     0 && \sin(\phi) && \cos(\phi)
   \end{bmatrix}
-$
+$$
 
 ##### Rotacionar em Y (Pitch - Arfagem)
 
-$
+$$
   ER_Y = \begin{bmatrix}
     \cos(\theta) && 0 && \sin(\theta) \\
     0 && 1 && 0 \\
     - \sin(\theta) && 0 && \cos(\theta)
   \end{bmatrix}
-$
+$$
 
 ##### Rotacionar em Z (Yaw - Guinada)
 
-$
+$$
   ER_Z = \begin{bmatrix}
     \cos(\psi) && - \sin(\psi) && 0 \\
     \sin(\psi) && \cos(\psi) && 0 \\
     0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
 ### Escala Matricial
 
@@ -325,23 +325,23 @@ Para lidar com isso, assim como na rotação, é necessário primeiro transladar
 A operação pode ser realizada utilizando a matriz quadrada de grau 2.
 
 $EM_2$: Escala Matricial 2D
-$
+$$
   EM_2 = \begin{bmatrix}
     S_x && 0 \\
     0 && S_y
   \end{bmatrix}
-$
+$$
 
 Entretanto, por padronização, considerando os pontos 2D "expandidos", devemos também utilizar a matriz 2d "expandida".
 
 $EM_{2^+}$: Escala Matricial 2D expandida
-$
+$$
   EM_{2^+} = \begin{bmatrix}
     S_x && 0    && 0 \\
     0   && S_y  && 0 \\
     0   && 0    && 1
   \end{bmatrix}
-$
+$$
 
 ### Reflexão Matricial
 
@@ -349,33 +349,33 @@ A reflexão matricial se refere a multiplicar os pontos por um valor negativo de
 
 $RefMat_x$: Reflexão em relação a X
 
-$
+$$
   RefMat_x = \begin{bmatrix}
   -1 && 0 && 0 \\
   0 && 1 && 0 \\
   0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
 $RefMat_y$: Reflexão em relação a Y
 
-$
+$$
   RefMat_y = \begin{bmatrix}
   1 && 0 && 0 \\
   0 && -1 && 0 \\
   0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
 $RefMat_{xy}$: Reflexão em relação a X e Y
 
-$
+$$
   RefMat_{xy} = \begin{bmatrix}
   -1 && 0 && 0 \\
   0 && -1 && 0 \\
   0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
 <img src="Cap2-images/Reflection.png" width="600">
 
@@ -386,22 +386,22 @@ A cisalha ocorre ao permitir a distorção da figura em um dos eixos ao multipli
 <img src="Cap2-images/skew2d.gif" width="600">
 
 $C_x^+$: Distorção em X.
-$
+$$
   C_x^+ = \begin{bmatrix}
   1 && k && 0 \\
   0 && 1 && 0 \\
   0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
 $C_y^+$: Distorção em Y.
-$
+$$
   C_y = \begin{bmatrix}
   1 && 0 && 0 \\
   k && 1 && 0 \\
   0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
 <img src="Cap2-images/skew3d.gif" width="600">
 
@@ -437,39 +437,39 @@ $P_r = P*[T*(E_y*C_x*R_{xy})*T^{-1}] = P*[T*TL_r*T^{-1}]$, onde temos as matrize
 - $T^{-1}$: Translação inversa
 - $TL_r$: Transformação Linear Resultante
 
-$
+$$
   E_y = \begin{bmatrix}
     1   && 0    && 0 \\
     0   && S_y  && 0 \\
     0   && 0    && 1
   \end{bmatrix}
-$
+$$
 
-$
+$$
   C_x = \begin{bmatrix}
   1 && k && 0 \\
   0 && 1 && 0 \\
   0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
-$
+$$
   R_{xy} = \begin{bmatrix}
   -1 && 0 && 0 \\
   0 && -1 && 0 \\
   0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
 $TL_r = E_y*C_x*R_{xy} $
 
-$
+$$
   TL_r = \begin{bmatrix}
   -1 && k && 0 \\
   0 && -S_y && 0 \\
   0 && 0 && 1
   \end{bmatrix}
-$
+$$
 
 ## Trabalho bonus <!-- 7 min - é isso mesmo? -->
 
@@ -905,7 +905,7 @@ int main(int argc, char **argv)
 
 Uma transformação Homogênea ocorre para conseguir padronizar os cálculos a serem feitos sobre determinadas matrizes. Aqui, onde temos utilizado o termo "expandida" para matrizes e pontos, podemos considerar que as transformações homogêneas podem ser utilizadas para manter este "anexo" sempre unitário. Caso este "anexo" tenha um valor diferente de 1, toda a matriz deve ser dividida por seu valor para que o anexo passe a ser unitário.
 
-$
+$$
   TH = \begin{bmatrix}
   X \\ Y \\ Z \\ M
   \end{bmatrix} = \begin{bmatrix}
@@ -913,7 +913,7 @@ $
   \end{bmatrix} * (1/M) = \begin{bmatrix}
   X/M \\ Y/M \\ Z/M \\ 1
   \end{bmatrix}
-$
+$$
 
 ## Projeções Geométricas <!-- 40 min + 26 min-->
 
