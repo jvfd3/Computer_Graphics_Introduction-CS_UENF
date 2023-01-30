@@ -217,13 +217,14 @@ $$
 $$
 
 $$
-  R = \begin{bmatrix}
-    T_{1,1}*X + T_{1,2}*Y + 0*1 \\
-    T_{2,1}*X + T_{2,2}*Y + 0*1 \\
+  R =
+  \begin{bmatrix}
+    T_{1, 1} * X + T_{1, 2} * Y + 0*1 \\
+    T_{2, 1} * X + T_{2, 2} * Y + 0*1 \\
     0*0 + 0*0 + 1*1
-  \end{bmatrix} =  \begin{bmatrix}
-    T_{1,1}*X + T_{1,2}*Y \\
-    T_{2,1}*X + T_{2,2}*Y \\
+  \end{bmatrix} = \begin{bmatrix}
+    T_{1, 1} * X + T_{1, 2} * Y \\
+    T_{2, 1} * X + T_{2, 2} * Y \\
     1
   \end{bmatrix}
 $$
@@ -325,6 +326,7 @@ Para lidar com isso, assim como na rotação, é necessário primeiro transladar
 A operação pode ser realizada utilizando a matriz quadrada de grau 2.
 
 $EM_2$: Escala Matricial 2D
+
 $$
   EM_2 = \begin{bmatrix}
     S_x && 0 \\
@@ -335,6 +337,7 @@ $$
 Entretanto, por padronização, considerando os pontos 2D "expandidos", devemos também utilizar a matriz 2d "expandida".
 
 $EM_{2^+}$: Escala Matricial 2D expandida
+
 $$
   EM_{2^+} = \begin{bmatrix}
     S_x && 0    && 0 \\
@@ -386,6 +389,7 @@ A cisalha ocorre ao permitir a distorção da figura em um dos eixos ao multipli
 <img src="Cap2-images/skew2d.gif" width="600">
 
 $C_x^+$: Distorção em X.
+
 $$
   C_x^+ = \begin{bmatrix}
   1 && k && 0 \\
@@ -395,6 +399,7 @@ $$
 $$
 
 $C_y^+$: Distorção em Y.
+
 $$
   C_y = \begin{bmatrix}
   1 && 0 && 0 \\
@@ -415,7 +420,7 @@ Estes detém matrizes ortonormais, ou seja, cada um de seus vetores são ortogon
 
 Estas transformações apresentam também isometria no espaço euclidiano, visto que mantém a mesma distância entre os pontos após serem feitas as transformações.
 
-<img src="Cap2-images/isometric-transformations.png" width="600" style="background-color:#92a5a6">
+<img src="Cap2-images/isometric-transformations_not_transparent.png" width="600">
 
 ## Composição de Transformações <!-- 38 min -->
 
@@ -425,20 +430,23 @@ Geralmente estes conjuntos de transformações estão "encapsuladas" em um pacot
 
 Estes conjuntos de operações podem até mesmo ser convertidos em uma única matriz de transformação, como por exemplo:
 
-Considere que queremos primeiro escalar o objeto no eixo y, em seguida efetuar uma cisalha no eixo x e então uma reflexão nos eixos x e y. Podemos então considerar o seguinte conjunto de ações:
-$P_r = P*[T*(E_y*C_x*R_{xy})*T^{-1}] = P*[T*TL_r*T^{-1}]$, onde temos as matrizes representando:
+Considere que queremos primeiro escalar o objeto no eixo y, em seguida efetuar uma cisalha no eixo x e então uma reflexão nos eixos x e y. Podemos então considerar o seguinte conjunto de ações onde temos as matrizes representando:
+  
+$$
+  P_{r} = P * [ T * ( E_{y} * C_{x} * R_{xy} ) * T^{-1} ] = P * [ T * TL_{r} * T^{-1} ]
+$$
 
-- $P_r$: Ponto resultante após operações
+- $P_{r}$: Ponto resultante após operações
 - $P$: Ponto inicial
 - $T$: Translação ao centro
-- $E_y$: Escala
-- $C_x$: Cisalha
+- $E_{y}$: Escala
+- $C_{x}$: Cisalha
 - $R_{xy}$: Reflexão
 - $T^{-1}$: Translação inversa
-- $TL_r$: Transformação Linear Resultante
+- $TL_{r}$: Transformação Linear Resultante
 
 $$
-  E_y = \begin{bmatrix}
+  E_{y} = \begin{bmatrix}
     1   && 0    && 0 \\
     0   && S_y  && 0 \\
     0   && 0    && 1
@@ -461,10 +469,10 @@ $$
   \end{bmatrix}
 $$
 
-$TL_r = E_y*C_x*R_{xy} $
+$TL_{r} = E_{y}*C_{x}*R_{xy}$
 
 $$
-  TL_r = \begin{bmatrix}
+  TL_{r} = \begin{bmatrix}
   -1 && k && 0 \\
   0 && -S_y && 0 \\
   0 && 0 && 1
@@ -892,7 +900,7 @@ int main(int argc, char **argv)
     glutDisplayFunc(Draw);
     glutMotionFunc(motion);
     glutMouseFunc(mouse); // CLICK e RELEASE botão de mouse
-    //	glutIdleFunc(idle);
+    // glutIdleFunc(idle);
     createGLUTMenus();
     glutMainLoop();
     return (0);
