@@ -5,7 +5,13 @@ Professor: Luis Antonio Rivera Escriba
 
 ## Um Exemplo de OpenGL <!-- Fazer um outro exemplo -->
 
-Abaixo está representado um código em C++
+Abaixo está representado um código em C++ disponibilizado pelo professor.
+
+<details> <summary>
+
+Código em C++ disponibilizado.
+
+</summary>
 
 ```c++
   #include <GL/glut.h>
@@ -55,6 +61,8 @@ Abaixo está representado um código em C++
   }
 ```
 
+</details>
+
 ## Transformações geométricas <!-- 2h08 -->
 
 As transformações geométricas são operações matemáticas realizadas em figuras geométricas com o objetivo de manipular a sua posição. Existem diversos tipos de transformações, algumas das quais, serão ilustradas a seguir.
@@ -63,39 +71,39 @@ As transformações geométricas são operações matemáticas realizadas em fig
 
 O processo de translação consiste em somar valores a um ponto, assim movendo-o ao longo do plano.
 
-<img src="Cap2-images/Translação_Ponto.gif" height="200">
+<img src="Cap2-images/Translação_Ponto.gif" width="600">
 
 Este mesmo processo pode ser realizado em figuras geométricas, ao realizar a mesma operação a todos os pontos envolvidos.
 
-<img src="Cap2-images/Translação_Figura.gif" height="200">
+<img src="Cap2-images/Translação_Figura.gif" width="600">
 
 ### Rotação
 
 A rotação consiste em modificar radialmente, em uma determinada quantidade de ângulos, a posição de cada um dos pontos da figura.
 
-<img src="Cap2-images/Rotação.gif" height="200">
+<img src="Cap2-images/Rotação.gif" width="600">
 
 ### Escala
 
 A escala é realizada ao multiplicar o valor de cada um dos pontos por um mesmo valor, assim resultando em uma figura maior caso o valor seja maior que um ou uma figura menor caso o valor seja entre 0 e 1.
 
-<img src="Cap2-images/Escala.gif" height="200">
+<img src="Cap2-images/Escala.gif" width="600">
 
 ### Reflexão
 
 A reflexão pode ocorrer de várias maneiras diferentes. Seja ela com base nos eixos cartesianos:
 
-<img src="Cap2-images/Reflexão_X0.gif" height="200">
+<img src="Cap2-images/Reflexão_X0.gif" width="600">
 
 Este caso acima se dá ao multiplicar o valor de X de todos os pontos da figura C por -1.
 
 Já no caso abaixo, primeiro é feita essa operação descrita acima, e logo a seguir os valores multiplicados por -1 são os do eixo Y.
 
-<img src="Cap2-images/Reflexão_Múltipla.gif" height="200">
+<img src="Cap2-images/Reflexão_Múltipla.gif" width="600">
 
 A reflexão também pode ocorrer através de um eixo definido arbitrariamente:
 
-<img src="Cap2-images/Reflexão_YX.gif" height="200">
+<img src="Cap2-images/Reflexão_YX.gif" width="600">
 
 ### Cisalha (skew/shear)
 
@@ -103,7 +111,7 @@ A cisalha ocorre, por exemplo, ao termos como resultado do eixo Y a soma de seu 
 
 ${Axis}_1' = {Axis}_1 + {Axis}_2*k$
 
-<img src="Cap2-images/Cisalha.gif" width="200">
+<img src="Cap2-images/Cisalha.gif" width="600">
 
 ## Sistemas de Coordenadas <!-- 1h16min -->
 
@@ -115,7 +123,7 @@ Em ambos os casos conseguimos definir um sistema para especificar a localizaçã
 
 Consideremos o seguinte exemplo:
 
-<img src="Cap2-images/DVD.gif" height="200">
+<img src="Cap2-images/DVD.gif" width="600">
 
 Neste caso temos uma **ilustração colorida do DVD em movimento** dentro de **uma imagem preta** contida na **tela de seu dispositivo**. Cada um desses escopos apresentam um universo de refência diferente.
 
@@ -260,17 +268,19 @@ $
 
 Entretanto, realizar a operação de rotação em uma figura, fará com que ela translade.
 
-<img src="Cap2-images/Rotação.png" width="400">
+<img src="Cap2-images/Rotação.png" width="600">
 
 Para isto, é necessário primeiro transladá-la em direção à origem, efetuar a rotação, e então realizar a tranlação inversa de volta ao local de onde ela saiu originalmente
 
-<img src="Cap2-images/Rotação_Translação.png" width="400">
+<img src="Cap2-images/Rotação_Translação.png" width="600">
 
 #### Euler
 
 A rotação de Euler apresenta uma forma de rotacionar um conjunto de pontos segundo um eixo específico. Para isso ele utiliza da ideia da rotação já apresentada na matriz anterior. Entretanto, para gerar a rotação segundo um eixo em específico, o que ele faz é adicionar uma nova linha e coluna contendo o valor 1 apenas na diagonal principal no "índice do grau da dimensão", ou seja, para rotacionar ao redor do eixo X, uma nova linha na posição 1 e uma nova coluna também na posição 1.
 
-<img src="Cap2-images/Rotação_Euler.png" width="400">
+<img src="Cap2-images/Rotação_Euler.png" width="600">
+
+<img src="Cap2-images/Rotação_Euler.gif" width="600">
 
 ##### Rotacionar em X (Roll - Rolagem)
 
@@ -302,17 +312,15 @@ $
   \end{bmatrix}
 $
 
-<img src="Cap2-images/Rotação_Euler.gif" width="400">
-
 ### Escala Matricial
 
 Como já comentado, a escala funciona ao multiplicar os eixos X e Y por escalares. Esses escalares podem ser iguais ou diferentes para cada um dos eixos. Entretanto, apenas realizar esta operação pode gerar resultados inesperados.
 
-<img src="Cap2-images/Wrong_scaling.gif" height="200">
+<img src="Cap2-images/Wrong_scaling.gif" width="600">
 
 Para lidar com isso, assim como na rotação, é necessário primeiro transladar a imagem ao centro, para só então realizar a escala e depois a retornar ao seu local de origem com a translação inversa.
 
-<img src="Cap2-images/Escala.gif" height="200">
+<img src="Cap2-images/Escala.gif" width="600">
 
 A operação pode ser realizada utilizando a matriz quadrada de grau 2.
 
@@ -369,13 +377,13 @@ $
   \end{bmatrix}
 $
 
-<img src="Cap2-images/Reflection.png" height="300">
+<img src="Cap2-images/Reflection.png" width="600">
 
 ### Cisalhamento (Shearing ou Skew) <!-- 20min -->
 
 A cisalha ocorre ao permitir a distorção da figura em um dos eixos ao multiplicá-lo por uma constante.
 
-<img src="Cap2-images/skew2d.gif" height="200">
+<img src="Cap2-images/skew2d.gif" width="600">
 
 $C_x^+$: Distorção em X.
 $
@@ -395,7 +403,7 @@ $
   \end{bmatrix}
 $
 
-<img src="Cap2-images/skew3d.gif" height="200">
+<img src="Cap2-images/skew3d.gif" width="600">
 
 ## Transformações Rígidas <!-- + -->
 
@@ -407,7 +415,7 @@ Estes detém matrizes ortonormais, ou seja, cada um de seus vetores são ortogon
 
 Estas transformações apresentam também isometria no espaço euclidiano, visto que mantém a mesma distância entre os pontos após serem feitas as transformações.
 
-<img src="Cap2-images/isometric-transformations.png" height="200" style="background-color:#92a5a6">
+<img src="Cap2-images/isometric-transformations.png" width="600" style="background-color:#92a5a6">
 
 ## Composição de Transformações <!-- 38 min -->
 
@@ -917,7 +925,7 @@ As projeções dependem do *plano de projeção*, *raio de projeção* e *centro
 
 Neste exemplo, ocorre a projeção paralela, onde os "raios de luz" são emitidos paralelos entre si e neste caso, perpendiculares a cada um dos planos. Esses raios de luz são os *raios de projeção*, também chamadas de *projetantes*.
 
-<img src="Cap2-images/Projeções_Geométricas1.gif" width="400">
+<img src="Cap2-images/Projeções_Geométricas1.gif" width="600">
 
 Além desses dois, há também o *centro de projeção* que de onde saem os *raios de projeção* que vão em direção ao objeto.
 
@@ -925,7 +933,7 @@ Além desses dois, há também o *centro de projeção* que de onde saem os *rai
 
 Existem vários tipos diferentes de projeções geométricas. Estes são ilustrados na figura a seguir.
 
-<img src="Cap2-images/Projeções_Geométricas3.png" width="400">
+<img src="Cap2-images/Projeções_Geométricas3.png" width="600">
 
 ### Classes de Projeções
 
@@ -942,6 +950,6 @@ Cada uma dessas projeções apresentam matrizes que a representam, mas que não 
 
 A câmera virtual serve como um ponto de observação por onde um observador estaria analisando algum objeto ou cena. A câmera possui uma posição no espaço (x, y, z), uma orientação (um vetor de direcionamento de sua frente), uma posição do foco <!-- Não entendi -->, e planos de corte (clipping planes) que irão definir quais partes da cena não serão renderizadas.
 
-<img src="Cap2-images/Projeções_Geométricas2.gif" width="400">
+<img src="Cap2-images/Projeções_Geométricas2.gif" width="600">
 
 Nesta imagem vemos a simulação de uma câmera virtual rodeando um cubo. Perceba que a posição da câmera muda constantemente, assim como sua orientação também muda para manter o cubo no centro.
