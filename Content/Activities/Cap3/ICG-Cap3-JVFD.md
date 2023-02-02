@@ -1,4 +1,4 @@
-# Curvas e Superfícies
+# Curvas e Superfícies - WIP
 
 Aluno: João Vítor Fernandes Dias
 Professor: Luis Antonio Rivera Escriba
