@@ -1,0 +1,925 @@
+Computação Gráfica
+Curvas e Superfícies
+
+Luis Rivera
+
+Modelagem de Curvas
+• Conjunto de pontos
+ Utiliza área de armazenamento
+ Segmentos de retas entre pontos
+• Curva aproximada...
+
+• Curva analítica
+ Utiliza de 1 ou mais equações
+ Exata e compacta
+ Não usa área de armazenamento
+ Facilita cálculo de novos pontos
+ fácil transformação geométrica
+
+• y = 3x3 + 2x2 - 4x + 1
+
+ Paramétricas e no paramétricas
+
+• f(t) = (2t3+t2-4, 3t3-2t-3)
+
+Curvas em Objetos
+• Representação
+simplificada de objetos
+ Contornos
+• Bezier: Projectos Renault
+
+ Definição de malhas
+ Características internas
+• Contornos de sombras
+• Arrugas, etc.
+
+• Formas de objetos
+ Letras
+ Objetos irregulares
+
+Curvas e Superfícies Paramétricas
+• Comum usar CURVA PARAMÉTRICA
+ Fácil desenho da curva/superfície
+(aproximada)
+ Fácil segmentar
+• Segmento a ser usado
+
+ Manipulação algébrica mais simples
+• Curva em 3D
+
+ C(t) = [Cx(t) Cy(t) Cz(t)]T
+
+• Superfície em 3D
+
+ S(u, v) = [Sx(u, v) Sy(u, v) Sz(u, v)]T
+
+Não-paramétrica:
+• Explícita: F (x) = y
+•y2 = 4 - x2
+
+• Implícita: F(x,y) = 0
+•y2 + x2 – 4 = 0
+Paramétrica:
+
+F(t) = (fx(t), fy(t))
+fx(t) = 2cos(t)
+fy(t) = 2sen(t)
+
+Características
+Continuidade e Suavidade
+
+• Curvas e Superfícies “suaves”
+ Continuidade: C0 → sen “saltos”
+ Continuidade: C1 → tangentes
+variam suavemente
+ Continuidade: Ck → k-ésimas
+derivadas contínuas
+
+C0
+
+• Alternativamente, Gk : continuidade
+geométrica
+ Independente de parametrização
+ Assumir curva parametrizada por
+comprimento de arco
+
+C1
+
+C2
+
+Interpolação x Aproximação
+• Curva suave passando por um conjunto de pontos
+dados (pontos de controle)
+ Se polinomial, pode-se usar interpolação polinomial
+Lagrangeana
+
+• Curva suave passando “perto” dos pontos dados
+(aproximações)
+ Splines
+
+Curvas de Hermite
+• Curva definida por:
+ P1 y P2 = Pontos extremos (inicial e final)
+ T1 y T2 = Tangentes associadas aos pontos extremos
+T1
+
+T1
+P1
+
+P2
+
+T1
+P1
+
+T2
+
+P(t) = a t3 + b t2 + c t + d
+
+P2
+
+P(t) = [t3 t2 t 1] C
+
+P(1) = a + b + c + d = P2
+
+P’(t) = 3 a t2 + 2 b t + c
+
+P’(0) = c = T1
+
+P’(t) = [3t2 2t 1 0] D
+
+P’(1) = 3 a + 2 b + c = T2
+
+Para 0 ≤ t ≤ 1
+
+
+
+p (t ) = t 3 t 2
+
+P1
+
+T2
+
+P(0) = d = P1
+
+T2
+
+−2 1
+1   p1 
+− 3 3 − 2 − 1  p 
+  2
+C=
+0
+0
+1
+0   T1 
+
+ 
+1
+0
+0
+0
+
+  T2 
+
+Resolvendo  2
+
+1   p1 
+ 2 −2 1
+− 3 3 − 2 − 1  p 
+  2
+t 1 .
+0
+0
+1
+0   T1 
+
+ 
+1
+0
+0
+0
+
+  T2 
+
+
+
+P2
+
+Curvas de Hermite
+(dedução)
+Seja P(t) = [ x(t), y(t), z(t) ] um ponto da curva
+➔ [ x(t) y(t) z(t) ] = [t3 t2 t 1] C = [ t3 t2 t 1 ] [ a b c d ]T
+
+
+
+= t3 t2
+
+Condições:
+
+a x
+b
+x
+t 1
+cx
+
+d x
+
+P(0) = P1 = [0 0 0 1] [ Cx Cy Cz ]
+P(1) = P2 = [1 1 1 1] [ Cx Cy Cz ]
+P’(0) = T1 = [0 0 1 0] [Cx Cy Cz ]
+
+P’(1) = T2 = [3 2 1 0] [Cx Cy Cz ]
+
+P = H C ➔ C = H-1 P
+
+
+
+ay
+by
+cy
+dy
+
+az 
+b z 
+= t3 t2
+cz 
+
+d z 
+
+ P1 0
+ P2 1
+ =
+ T1 0
+  
+T2  3
+
+
+
+0
+1
+0
+2
+
+0
+1
+1
+1
+
+
+
+t 1 Cx Cy Cz 
+
+1
+1
+Cx Cy Cz 
+0
+
+0
+
+1   P1
+ 2 −2 1
+ − 3 3 − 2 − 1   P 2
+C = Cx Cy Cz  = 
+0  
+0
+0
+1
+0   T1 
+
+ 
+0
+0
+1  T 2 
+1
+
+Curva de Bezier
+• Usa K pontos de controle
+ P0, P1, …, Pk-1
+ Curva cúbica usa P0, P1, P2,
+P3 (por segmento)
+ Relacionado com Hermite
+
+P0
+
+P2
+P1
+
+p1
+
+• Tangentes nos extremos
+• T 1 = P1 – P 0 y T 2 = P 3 P2
+
+• Definida por
+n
+
+P(t ) =  Pi .Bi , n (t ), para 0  t  1
+i =0
+
+Pol. de Berstein
+n i
+Bi , n (t ) =   t (1 − t ) n −i
+i
+
+P3
+
+P4
+P5
+p2
+p3
+
+p0
+
+Polinômios de Bernstein
+Polinômios de
+de Berstein
+Bernstein
+grau
+Polinômios
+dede
+grau
+3 3
+1
+0.9
+0.8
+0.7
+B0,3(t)
+b03(u)
+
+0.6
+
+B1,3(t)
+b13(u)
+
+0.5
+
+B2,3(t)
+b23(u)
+
+0.4
+
+B3,3(t)
+b33(u)
+
+0.3
+n
+
+0.2
+
+ B (t ) = 1
+
+0.1
+
+i =0
+
+0
+0
+
+0.2
+
+0.4
+
+0.6
+t
+
+0.8
+
+1
+
+i, n
+
+Curvas Bézier
+(Propriedades)
+• Continuidade C0: p3 = p0
+• Continuidade C1: C0 e p2p3 de primeiro = p0p1 do segundo
+• Continuidade C2: C1 e + restrições sobre p1 da primeira e p2 da
+segunda
+p2
+
+p1
+
+p3
+p0
+
+p0
+
+p3
+p1
+
+p2
+
+• Fechado Convexo
+p1
+
+p2
+
+p3
+
+p3
+
+p0
+p0
+
+p1
+
+p2
+
+Base Bézier
+(Forma matricial)
+
+• Um segmento de curva cúbica, para 0 ≤ t ≤ 1
+
+
+
+p(t ) = t 3 t 2
+
+ −1 3 − 3
+ 3 −6 3
+t 1
+− 3 3
+0
+
+0
+0
+1
+
+
+
+1  p 0 
+0 p `1 
+0  p 2 
+ 
+0  p 3 
+
+Splines
+• A base de Bézier não é apropriada para modelagem
+de curvas longas
+ Bézier única: suporte não local
+ Trechos conectados: restrições não são naturais
+
+• Base alternativa: B-Splines
+ Polígonos de controle sem restrições adicionais
+ Suporte local
+• Alteração de um vértice afeta apenas na vecindade
+
+ Existem muitos tipos de Splines
+• Una B-spline uniforme de grau d tem continuidade Cd-1
+
+Curvas B-Splines
+• Combinação linear de:
+
+P0
+
+P2
+
+ Pontos de controle P0, P1, …, Pn
+P
+P(t ) =1  P .B (t ), para 0  t  1
+ Funções bases de ordem k
+P3
+
+P4
+
+n
+
+i =0
+
+i
+
+i
+
+n
+
+P(t ) =  Pi .Bi , k (t ), para 0  t  1
+i =0
+
+Onde Cox de Boor
+1, para ti  t  ti +1
+Bi ,1 (t ) = 
+0, em outros intervalos
+ 1 − ti 
+ t −t 
+ Bi , k −1 (t ) +  i + k
+ Bi +1,k −1 (t )
+Bi , k (t ) = 
+
+
+
+t
+−
+t
+t
+−
+t
+i
++
+k
+−
+1
+i
+i
++
+k
+i
++
+1
+
+
+
+
+
+• Curva não passa pelos pontos de controle
+
+P5
+
+Curvas B-Spline
+• Função base B-spline quadrática periódica
+Bi ,2(t)
+
+1
+
+2
+
+3
+
+Bi–1,2 (t)
+
+1
+
+2
+
+4
+
+Bi ,2(t)
+
+3
+
+4
+
+5
+
+6
+
+t
+
+Bi+1,2 (t)
+
+5
+
+6
+
+t
+
+Curvas B-Spline
+• Função base B-spline cúbica periódica
+Bi,3(t)
+
+t
+
+Bi-1,3(t)
+
+Bi,3(t) Bi+1,3(t) Bi+2,3(t)
+
+t
+
+Recurrencia Cox-de Boor
+m
+
+p(t ) =  Bi ,k (t )p i
+i =0
+
+1 para ti  t  ti +1 ,
+Bi , 0 (t ) = 
+0 caso contrário.
+t − ti
+ti + k +1 − t
+Bi ,k (t ) =
+Bi ,k −1 +
+Bi +1,k −1
+ti + k − ti
+ti + k +1 − ti +1
+k=3
+
+pi
+
+k=1
+
+k=2
+pi+1
+
+pi+3
+
+pi+2
+
+Propriedades das B-Splines
+• Dados n+1 pontos (p0 ... pn) , é composta de (n-d+1) curvas
+Bézier de grau d unidas com continuidade d-1 nos n+d+1 nós
+t0 , t1 , ... , tn+d+1
+• Cada ponto da curva é afetado por d+1 pontos de controle
+• Cada ponto de controle afeta d+1 segmentos
+• Curva restrita ao fecho convexo do polígono de controle
+Forma Matricial
+
+
+
+p(t ) = t 3 t 2
+
+ −1 3 − 3
+
+1  3 −6 3
+t 1
+3
+6 − 3 0
+
+4
+1
+1
+
+
+
+1  p i −1 
+0  p i 
+, para 0  t  1
+0  p i +1 
+
+
+0 p i + 2 
+
+Efeito dos Nodos
+• Os intervalos entre nodos influencían a
+importância dos pontos de controle
+ Exemplo: B-spline Quádrica
+
+Catmull-Rom Spline
+• Interpolação local de BSplines
+• A curva passa por pontos
+Ponto desejado
+de controle
+
+• Um ponto é calculado em função dos pontos de
+controle adjacentes
+q(t ) =
+
+
+
+1 3 2
+t t
+2
+
+− 1 3 − 3 1   p0 
+ 2 − 5 4 − 1  p 
+* 1
+t 1 *
+− 1 0
+1
+0   p2 
+
+  
+0
+2
+0
+0
+
+  p3 
+
+
+
+Superfícies
+
+Representação de Superficies
+(superficies de revolução)
+• Rotação de uma curva plana em torno de um eixo
+• Ponto da superficie de revolução descrito por
+ P(t, ang)
+
+• Podem ser obtidas por qualquer tipo de curva
+
+Representação de Superficies
+(superficies de deslocamento)
+• Denominada “sweeping” (barredura)
+• Movimento de uma curva ou figura plana ao longo
+de um caminho
+• Podem ser obtenidas por qualquer tipo de curva
+
+Representação de Superficies
+(interpolação Bi-cúbica)
+
+• São formas paramétricas
+• Qualquer ponto do interior é definido
+univocamente
+• Cada pedaço (patch) gerada por uma
+fórmula
+(0, 1)
+
+v
+(0, 0) u
+
+(1, 0)
+
+Superficies Paramétricas
+Superficie produto tensor: polinomial bivariante expressado em
+térmos de funções bases univariante.
+
+n −1 m −1
+
+V B (v) B (u) = S (u, v)
+i =0 j =0
+
+i, j
+
+j
+
+i
+
+Representação matricial
+
+B(u) V B(v) = S (u, v)
+T
+
+Em função de bases bivariantes
+
+V B (v, u) = S (u, v)
+i, j
+
+i, j
+
+i, j
+
+Notação matricial
+
+v
+
+B(v, u)V = S (u, v)
+u
+
+Superficies Paramétricas
+n −1 m −1
+
+ P B (v) B (u) = S (u, v)
+i =0 j =0
+
+i, j
+
+j
+
+i
+
+P32
+
+P31
+
+P33
+
+P30
+
+P23
+P13
+
+P20
+P10
+
+(0, 1)
+
+v
+(0, 0) u
+
+P00
+(1, 0)
+
+P01
+
+P02
+
+P03
+
+Um Patch (16 pontos de controle)
+
+Patches adjacentes
+
+Superficies de Hermite
+• Extesão da formulação de Hermite
+• Interior gerada pelas funções combinadas (blending function)
+P(u,v) = S H GH HT TT
+onde S = [u3, u2, u, 1], T = [v3, v2, v, 1], H matriz de Hermite
+(matriz das curvas) e GH
+
+ P(0,0)
+
+ P(1,0)
+GH = 
+ P
+ v (0,0)
+
+ P (1,0)
+ v
+
+P(0,1)
+P(1,1)
+P
+(0,1)
+v
+P
+(1,1)
+v
+
+P
+(0,0)
+u
+P
+(1,0)
+u
+2P
+(0,0)
+vu
+2P
+(1,0)
+vu
+
+P
+
+(0,1) 
+u
+
+P
+(1,1) 
+u
+
+2
+ P
+
+(0,1)
+vu
+
+2P
+(1,1) 
+
+vu
+
+Superficies Bézier
+• Extensão das curvas de Bezier
+n
+
+m
+
+S (u, v) =  Pi , j Bi ,n (u ) B j ,m (v)
+
+0  u, v  1
+
+i =0 j =0
+
+onde Bi,j é matriz de vértices de controle, Bi,n(u) e Bj,m(v)
+são funções de Berstein
+3
+
+
+
+S (u, v) = u 3 u 2
+
+v 
+ 2
+v
+u 1 M B GB M BT  
+v
+ 
+ 1 
+
+
+
+Superficies B-Spline
+• Extensão das curvas B-Spline
+
+
+
+S (u, v) = u 3
+
+u2
+
+v 3 
+ 2
+v
+u 1  M G  M T   
+v
+ 
+ 1 
+
+
+
+Superficies Catmull-Rom Spline
+
+
+
+S (u, v) = u 3
+
+u2
+
+v 3 
+ 2
+v
+u 1  M G  M T   
+v
+ 
+ 1 
+
+
+
+− 1 3 − 3 1 
+
+
+1  2 − 5 4 − 1
+M=
+1
+0
+2 − 1 0
+
+
+0
+2
+0
+0
+
+
+
+Geração de pontos de controle
+
+Gerado
+
+
