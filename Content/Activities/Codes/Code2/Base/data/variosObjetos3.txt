@@ -1,0 +1,7 @@
+#variosObjetos
+#numObjs 1
+#nomArqObj01 data/dadosCubo.txt
+#cor 1.0 0.0 0.0 0.0
+#pos 10.0 0.0 -60.0
+#orienta 30.0 0.0 0.0
+#escala 0.7

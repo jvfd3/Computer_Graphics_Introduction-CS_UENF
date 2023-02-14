@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rupees - Legend of Zelda
+* source:	https://sketchfab.com/3d-models/rupees-legend-of-zelda-74866fd5e44c46688336b84477535b63
+* author:	torchwurm (https://sketchfab.com/torchwurm)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rupees - Legend of Zelda" (https://sketchfab.com/3d-models/rupees-legend-of-zelda-74866fd5e44c46688336b84477535b63) by torchwurm (https://sketchfab.com/torchwurm) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,9 @@
+{
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: llvm, IndentWidth: 4, AccessModifierOffset: -4, AllowShortFunctionsOnASingleLine: None, AlwaysBreakAfterDefinitionReturnType: None }",
+  "files.associations": {
+    "*.rmd": "rmarkdown",
+    "*.Rmd": "rmd",
+    "*.js": "javascriptreact",
+    "cmath": "cpp"
+  }
+}
