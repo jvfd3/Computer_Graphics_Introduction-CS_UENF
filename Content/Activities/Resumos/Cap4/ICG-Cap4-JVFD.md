@@ -1,7 +1,15 @@
-# Realismo VisuaL - WIP
+# Realismo VisuaL
+
+<!--
+Comecei: 15/02/23 - 12h54
+Finalizei: 15/02/23 - 12h54
+Duração: 
+-->
 
 Aluno: João Vítor Fernandes Dias
 Professor: Luis Antonio Rivera Escriba
+
+Semestre: 2022/E - 2023/01~2023/02
 
 ## Realismos Visuais
 
@@ -190,23 +198,3 @@ Comparação entre manipulação dos objetos vs manipulação das câmeras.
 ```
 
 <!-- Arquitetura do raytracing -->
-
-## CORES
-
-### Cores na retina
-
-### Retina e receptores de ondas
-
-### Cores e cones
-
-### Cores aditivas: RGB
-
-### ...?
-
-### Cores
-
-### Modelo de cor
-
-### Cores HSV
-
-### HUE
