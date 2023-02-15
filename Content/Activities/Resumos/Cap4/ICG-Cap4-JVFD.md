@@ -109,17 +109,42 @@ Neste algoritmo, as etapas seriam:
 
 ## Ray tracing
 
-O raytracing fica considerando os raios de luz que colidem com superfícies.
+O ray tracing trata do cômputo do comportamento dos raios luminosos, considerando suas colisões com as superfícies. Ao buscar a realidade fotográfica, a quantidade de colisões a serem computadas tende a ser cada vez maior. Além da luz direcional advinda de alguma fonte direcional, há também a luz ambiente que é uma luz difusa que vêm de várias direções através das reflexões de objetos foscos.
 
-Quando for fotográfica tem que ser mais de 5
+### Interseção dos raios
 
-Além da luz direcional, há também a luz ambiente
+Para calcularmos como os raios luminosos se comportam, consideramos que o raio "sai" do ponto focal onde se encontra o observador, se dirige ao objeto e após algumas reflexões, alcança por fim a fonte luminosa.
 
-## Interseção dos raios
+Caso hajam muitas colisões, pode-se estimar que está havendo uma obstrução do caminho, e que por isso aquele local estaria obscurecido.
 
-Comparação entre manipulação dos objetos vs manipulação das câmeras.
+### Arquitetura do raytracing
+
+A arquitetura do Ray Tracing obtida [deste link][LinkRT].
+
+<img src="Cap4-images/rayTracingArchitecture.gif">
+
+Esta imagem indica a seguinte sequência:
+
+- A cena computada é analisada e é "vista" pela câmera.
+- A cena também é analisada quanto à sua geometria, luzes e materiais.
+- As luzes e materiais geram sombras baseadas em suas geometrias.
+- As sombras, são calculadas baseadas nas interseções dos raios luminosos e os raios advindos da câmera que foram refletidos pelas geometrias dos objetos.
+- Por fim, estas informações são convertidas em pixels.
+- Estes pixels então são usados para se escrever uma imagem.
+
+[LinkRT]: http://www.vrarchitect.net/anu/cg/GlobalIllumination/rayTracingArchitecture.en.html
 
 ## Rendering de um frame
+
+O rendering de um frame pode ser dado pelo seguinte algoritmo provido pelo professor da disciplina:
+
+<details>
+
+<summary>
+
+**Código disponibilizado**
+
+</summary>
 
 ```c++
   for (int j = 0; j < imageHeight; ++j) {
@@ -137,7 +162,8 @@ Comparação entre manipulação dos objetos vs manipulação das câmeras.
           float distance = Distance(eyePosition, pHit);
           if (distance < minDistance) {
             object = objects[k];
-            minDistance = distance; // update min distance
+            minDistance = distance;
+            // update min distance
           }
         }
       }
@@ -153,12 +179,13 @@ Comparação entre manipulação dos objetos vs manipulação das câmeras.
           }
         }
       }
-      if (!isInShadow)
+      if (!isInShadow) {
         pixels\[i][j] = object->color * light.brightness;
-      else
+      } else {
         pixels\[i][j] = 0;
+      }
     }
   }
 ```
 
-<!-- Arquitetura do raytracing -->
+</details>
