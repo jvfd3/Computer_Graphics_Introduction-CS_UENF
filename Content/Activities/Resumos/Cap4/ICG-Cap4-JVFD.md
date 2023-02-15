@@ -7,7 +7,7 @@ Chequei. Só converti do PDF mesmo. 😮‍💨
 
 Comecei:    15/02/23 -  15h24
 Finalizei:  15/02/23 -  18h16
-Duração:                1h53 (Sim, não é certinho, ocorreram outras coisas entre o início e fim)
+Duração:                1h53 (Sim, não é certinho, ocorreram outras coisas entre o início e fim) - Sem adição de imagens como eu gostaria
 -->
 
 Aluno: João Vítor Fernandes Dias
