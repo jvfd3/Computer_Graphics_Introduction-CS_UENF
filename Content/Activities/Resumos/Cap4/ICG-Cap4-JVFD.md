@@ -1,13 +1,13 @@
-# Realismo Visual - WIP
+# Realismo Visual
 
 <!--
 Já foi começado antes, o tempo abaixo vai ser só eu terminando. Na verdade não sei se já resumi ou se só converti o pdf.
 
 Chequei. Só converti do PDF mesmo. 😮‍💨
 
-Comecei: 15/02/23 - 
-Finalizei: 15/02/23 - 
-Duração: 
+Comecei:    15/02/23 -  15h24
+Finalizei:  15/02/23 -  18h16
+Duração:                1h53 (Sim, não é certinho, ocorreram outras coisas entre o início e fim)
 -->
 
 Aluno: João Vítor Fernandes Dias
