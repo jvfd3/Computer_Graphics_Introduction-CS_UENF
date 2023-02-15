@@ -38,9 +38,13 @@ Para gerar o realismo visual, ocorrem algumas das seguintes fases:
 
 A rasterização é o processo de converter vetores em matrizes de pontos. Esta transormação tende a gerar linhas com aparência serrilhada (aliasing), e para isso existem algoritmos de *anti-aliasing*.
 
+<img src="Cap4-images/vectorToRaster.gif">
+
 ### Rastering de retas
 
 Uma execução frequente deste processo de rasterização envolve as retas. Mas como as resoluções dos dispositivos eletrônicos são limitadas a uma certa quantidade de pixels, é necessário que seja feita um aproximação dos pontos da reta que contém pontos matematicamente infinitos nas redondezas do local por onde passa a reta.
+
+<img src="Cap4-images/bresenhamAlgorithm.gif">
 
 Para lidar com essas imperfeições trazidas pelas retas, utilizamos dos algortimos já citados. Um deles sendo o **Algoritmo de Bresenham**, onde, para cada pixel próximo de onde passa a linha limitada pelos $P1=(x_1, y_1)$ e $P2(x_2, y_2)$, rege-se o seguinte algoritmo:
 
