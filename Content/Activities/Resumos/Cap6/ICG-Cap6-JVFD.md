@@ -27,6 +27,8 @@ Para haver esta representação gráfica, é necessário primeiro haver a modela
 
 Cada vez que um objeto é criado ele surge com um Centro de Referência Local. Com ele é possível realizar as operações de transformação geométrica.
 
+<img src="Cap6-images/pivot.gif">
+
 ## Sólidos Uni, Bi e Tridimensionais
 
 Um sólido pode ser definido como um subconjunto fechado e limitado de um Espaço Euclidiano Tridimensional ($E^3$).
@@ -53,6 +55,8 @@ As propriedades são as seguintes:
 - Descritibilidade: possível de ser descrito segundo propriedades físicas, químicas, etc.
 - Operações fechadas: operações entre os objetos devem ser válidas.
 
+<img src="Cap6-images/klein.gif">
+
 Obs.: Klein Bottle: é realizável.
 
 ## Formas de representação do objeto
@@ -63,6 +67,8 @@ Cada objeto pode ser representado de diversas formas diferentes. Abaixo são exe
 
 Uma das formas de representar o objeto é a forma "aramada". Neste caso, a visualização é composta apenas por arestas e vértices.
 A vantagem é que é rápido de exibir, entretanto, por haver poucas superfícies ilustradas, acaba havendo maior dificuldade para realizar operações como intercessão, visto que não é facilmente computável onde que a intercessão ocorre.
+
+<img src="Cap6-images/wireframe.gif">
 
 ### Faces
 
@@ -82,16 +88,25 @@ O benefício desse método é que ele apresenta maior facilidade para rendering,
 
 ### Fórmula de Euler
 
-V - A + F = 2
+De forma matematicamente rigorosa, pode-se dizer que todos os poliedros simples (sem buracos) obedecem à fórmula de Euler: $V - A + F = 2$, onde:
 
-Também aplicado à fórmula de Euler.
+- $V$ é o número de vértices
+- $A$ é o numero de arestas
+- $F$ é o número de faces
+
+Esta fórmula também pode ser aplicad a objetos com faces não planares como cilindros.
+
+<!-- Mas e as esferas? 0 - 0 + 1 = 2? -->
 
 ### Estrutura de dados
 
+Para que as figuras possam ser representadas computacionalmente, é necessário o uso de estruturas de dados específicas para armazenar seus dados. Abaixo serão demonstradas algumas dessas estruturas.
+
 #### baseada em vértices
 
-Essa estrutura consiste em duas tabelas: a primeira é a definição de Vértice-Coordenadas (A: (0,0,0), B: (1,0,1), ...); a segunda é a definição de faces-Vértices (F1: ABCD, ...):. Sempre sendo representados em um mesmo sentido. Senão na hora do cálculo de luminosidade a face fica invertida.
+Essa estrutura consiste em duas tabelas: a primeira é a definição de Vértice-Coordenadas (A: (0,0,0), B: (1,0,1), ...); a segunda é a definição de faces-Vértices (F1: ABCD, ...):. Sempre sendo representados em um mesmo sentido rotacional (horário ou anti-horário), senão na hora do cálculo de luminosidade a face aparenta estar invertida.
 
+<!-- Adicionar a matriz que exemplifica esses dados? -->
 <!-- Pesquisar imagem que represente isso -->
 
 #### baseada em arestas
@@ -110,7 +125,11 @@ Algoritmo recursivo para ir segmentando o objeto em paralelepídeos menores. Ess
 
 ## Técnicas de Modelagem Geométrica
 
-- ...
+Podemos ter 3 tipos de modelagem geométrica:
+
+- Manual
+- Automática
+- Matemática
 
 ### Instanciamento de primitivas
 
