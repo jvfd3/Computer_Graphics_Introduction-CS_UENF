@@ -70,6 +70,8 @@ Para lidar com essas imperfeições trazidas pelas retas, utilizamos dos algorti
 
 Além de retas, também ocorre a rasterização de polígonos. Para eles, primeiro os objetos 3D são projetados em um plano, assim determinando os segmentos de arestas que os compõem e então aplicando o raster para cada um dos segmentos.
 
+<img src="Cap4-images/scanLine.jpg">
+
 Após esta etapa, então é analisada cada linha para definir qual é a área externa e externa para então preencher o que faltar.
 
 ## Remoção de linhas e superfícies escondidas
@@ -85,6 +87,8 @@ Alguns algoritmos populares são:
 ### Algoritmo do Pintor
 
 A ideia do algoritmo é simular a forma como um pintor faria: primeiro pinta os objetos distantes. Então "Se face A bloqueia a visão de B, então B está mais distante que A".
+
+<img src="Cap4-images/painter.jpg">
 
 As etapas do algoritmo seriam:
 
@@ -118,6 +122,10 @@ O ray tracing trata do cômputo do comportamento dos raios luminosos, consideran
 ### Interseção dos raios
 
 Para calcularmos como os raios luminosos se comportam, consideramos que o raio "sai" do ponto focal onde se encontra o observador, se dirige ao objeto e após algumas reflexões, alcança por fim a fonte luminosa.
+
+<img src="Cap4-images/rayTracingCamera.jfif">
+<img src="Cap4-images/rayTracingCameraCameraToSun.jfif">
+<img src="Cap4-images/rayTracingCameraCameraToObject.jfif">
 
 Caso hajam muitas colisões, pode-se estimar que está havendo uma obstrução do caminho, e que por isso aquele local estaria obscurecido.
 
