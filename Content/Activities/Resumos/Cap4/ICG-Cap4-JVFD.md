@@ -1,8 +1,12 @@
 # Realismo Visual - WIP
 
 <!--
-Comecei: 15/02/23 - 12h54
-Finalizei: 15/02/23 - 12h54
+Já foi começado antes, o tempo abaixo vai ser só eu terminando. Na verdade não sei se já resumi ou se só converti o pdf.
+
+Chequei. Só converti do PDF mesmo. 😮‍💨
+
+Comecei: 15/02/23 - 
+Finalizei: 15/02/23 - 
 Duração: 
 -->
 
@@ -13,56 +17,32 @@ Semestre: 2022/E - 2023/01~2023/02
 
 ## Realismos Visuais
 
-- Técnicas de tratamento computacional aplicadas a os objetos sintéticos
-- Realismo fundamental em:
-- Simulações, entretenimento, educação, medicina, etc.
-- Realismo em duas etapas:
-- Estática
-- Objetos e cenas estáticas com realismo fotográfico
-- Dinâmica
-- Cenas e objetos em movimento
+A ideia do realismo visual é conseguir reproduzir objetos virtuais de forma a se tornar indistinguível de um objeto real. O realismo se dá em duas frentes diferentes. Em uma delas, visa-se criar imagens estáticas que se assemelhem ao mundo real; outra é criar objetos e cenas em movimentos que se assemelhem, também, ao mundo real.
 
 ## Rendering
 
-- No possui tradução para Português
-- Def.
-- Criação sintética das cenas com realismo fotográfico, em termos da definição dos dados dos objetos que a compõem.
-- Considerando a Geometria da cena, materiais, iluminação, etc.
+Rendering é um termo em inglês que se refere a criação cintética de imagens ou ambientes virtuais que visem através de processos computacionais gerar um produto final. Em termos de computação gráfica, esse produto final tende a ser visual, lidando com a geometria dos objetos, objetos em cena, comportamento da iluminação, reflexão dos materiais, etc.
 
 ## Fases de Processo de Realismo Visual
 
-- Não todas as fases são usadas em todas as aplicações:
+Para gerar o realismo visual, ocorrem algumas das seguintes fases:
+
 - Construção do modelo
-  - Modelado (informações necessárias para realismo visual)
-- Aparência tridimensional
-  - Transformações (projeções e perspectivas, etc)
-- Eliminação de polígonos ou faces escondidas
-  - Considerando posição relativa da cena e o observador
-- Recortes
-  - Clipping (segmento da cena visível)
-- Rasterização
-  - Objeto 3D transformado em pixel
-- Colorir cada pixel individualmente
-  - Efeito de sombras, luz, brilho, transparência, textura, etc.
+- Aparência tridimensional: Transformações, projeções, perspectivas...
+- Eliminação de polígonos ou faces escondidas considerando a câmera virtual
+- Recortes (Clipping) para renderizar apenas o segmento visível da cena.
+- Rasterização: objeto 3D transformado em pixel
+- Colorir cada pixel individualmente, levando em consideração os efeitos de luz e sombras, e as propriedades de materiais como transparência e textura
 
 ## Rasterização
 
-- Conversão da representação vetorial para matricial
-- Podemos obter uma linha com uma aparência endentada (aliasing)
-- Algoritmos de anti-aliasing
-- Algoritmo de Bresenham para linhas
-- Rasterização de polígonos
-- Preenchimento de polígonos por scanline
-- Remoção de linhas e superfícies escondidas
+A rasterização é o processo de converter vetores em matrizes de pontos. Esta transormação tende a gerar linhas com aparência serrilhada (aliasing), e para isso existem algoritmos de *anti-aliasing*.
 
-## Rastering de retas
+### Rastering de retas
 
-- Objetos definidos por pontos, retas, círculos, etc.
-- Retas não são perfeitas
-- Aliasing
-- Algoritmo de Bresenham
-- Linha entre 1=(x1, y1) y 2=(x2,y2)
-- Para cada pixel próximo à reta
+Uma execução frequente deste processo de rasterização envolve as retas. Mas como as resoluções dos dispositivos eletrônicos são limitadas a uma certa quantidade de pixels, é necessário que seja feita um aproximação dos pontos da reta que contém pontos matematicamente infinitos nas redondezas do local por onde passa a reta.
+
+Para lidar com essas imperfeições trazidas pelas retas, utilizamos dos algortimos já citados. Um deles sendo o **Algoritmo de Bresenham**, onde, para cada pixel próximo de onde passa a linha limitada pelos $P1=(x_1, y_1)$ e $P2(x_2, y_2)$, rege-se o seguinte algoritmo:
 
 ```c++
   x = x1;
@@ -70,80 +50,64 @@ Semestre: 2022/E - 2023/01~2023/02
   dx = x2 – x1;
   dy = y2 – y1;
   m = dy/dx;
-  e = m – 0.5; 
-  for (i = 1...dx) {
-    desenhaPonto(x,y)
+  e = m – 0.5;
+  for (i = 1; i<= dx; i++) {
+    desenhaPonto(x, y)
     while (e >= 0){
       y = y + 1;
-      e = e – 1; 
+      e = e – 1;
     }
+    x = x + 1;
+    e = e + m;
   }
-  x = x + 1;
-  e = e + m;
 ```
 
-## Rastering de Polígonos por Scan Line
+### Rastering de Polígonos por Scan Line
 
-- Objetos 3D são projetados num plano
-- Determinados segmentos de arestas
-- Interseções
-- Processo de raster por segmento
-- Fig A
-- Para preenchimento por scan line
-- Cada linha de scan line
-- Segmentada por arestas
-- Considerar qual é interno e qual externo
-- Fig B
+Além de retas, também ocorre a rasterização de polígonos. Para eles, primeiro os objetos 3D são projetados em um plano, assim determinando os segmentos de arestas que os compõem e então aplicando o raster para cada um dos segmentos.
+
+Após esta etapa, então é analisada cada linha para definir qual é a área externa e externa para então preencher o que faltar.
 
 ## Remoção de linhas e superfícies escondidas
 
-- Elementos dos objetos visíveis dependem da referencia do observador
-- Objetos aproximados a faces planas (polígonos) escondidas
-- Formas de representação das wireframes não-visíveis:
-- Tracejadas com a mesma cor
-- Tracejadas com outra cor
-- Não tracejadas
-- Maiormente usada
-  - Algoritmos populares
-  - Algoritmo do Pintor
-  - Algoritmo de Eliminação de faces Ocultas pelo Cálculo Normal
-- Algoritmo Z-Buffer escondidas
+Considerando que wire-frames são formas rústicas de se visualizar objetos 3D, podemos considerar que, as wire-frames que não se encontrem sendo vistas diretamente, possam então ser tratadas de forma diferente. Pode-se tracejar com a mesma cor, cor diferente, ou então até mesmo não tracejar.
+
+Alguns algoritmos populares são:
+
 - Algoritmo do Pintor
-  - Simula a forma como o pintor faria
-    - Pintar objetos mais distantes do observador
-  - Se face A bloqueia a visão de B, então B está mais distante que A.
-- Algoritmo
-  - Calcular a distancia ao observador de todas as faces poligonales da cena
-  - Ordenar todos os polígonos pelo valor de sua distancia ao observador
-  - Resolver as redundantes
-  - Desenhar primeiro os polígonos que estão mais distantes do observador
-- Dificuldades
-  - Objetos parte visíveis
+- Algoritmo de Eliminação de faces ocultas pelo cálculo normal
+- Algoritmo Algoritmo Z-Buffer
 
-Os objetos parcialmente visíveis não têm como estar diretamente acima A e abaixo de B... Olhar imagem.
+### Algoritmo do Pintor
 
-- Algoritmo de Eliminação de Faces Ocultas pelo Cálculo Normal
-  - ângulo da normal com a superfície na direção do observador
-- Teste de Visibilidade
-  - Dois vetores de orientação (u e v) associados a cada face ou superfície
-  - O vetor normal (n) de cada uma dessas faces ou superfícies
-  - Vetor da linha de visibilidade (l)
-  - Cálculo do ângulo (b) - vetor normal (n) e vetor da linha de visibilidade (l)
-    - n.l = | n |.| l |. Cos b
+A ideia do algoritmo é simular a forma como um pintor faria: primeiro pinta os objetos distantes. Então "Se face A bloqueia a visão de B, então B está mais distante que A".
 
-- Algoritmo de Eliminação de Faces Ocultas por Cálculo Normal
-  - Ler as coordenadas dos objetos, considerando um ponto de referencia e armazenar em forma de matriz
-  - Localizar no espaço da posição do observador
-  - Calcular o vetor normal de cada face do objeto
-  - Calcular o vetor da linha de visibilidade para cada face do objeto
-  - Realizar a verificação de visibilidade
-    - Si n.l > 0, a face estará visível
-    - Si n.l < 0, a face estará invisível
-  - Definir os cantos das faces do objeto e armazená-los de formal matricial
-  - Verificar os cantos visíveis, com seus respectivos posicionamentos
-  - Tracejar as arestas das faces visíveis.
+As etapas do algoritmo seriam:
 
-## Ray Tracing
+- Calcular a distância de todas as faces presentes na cena até o observador.
+- Ordenar todos os polígonos por valor de distância
+- Resolver redundâncias
+- Desenhar os polígonos do mais distante ao menos distante
+
+Os problemas desse algoritmo ocorrem quando temos objetos que estão parcialmente visíveis, por exemplo duas mãos com dedos entrelaçados. Ao mesmo tempo que uma mão está oculta pela outra, ela ainda assim tem partes de si que estão à frente da outra.
+
+### Algoritmo de elimação de faces ocultas pelo cálculo normal
+
+Neste algoritmo, as etapas seriam:
+
+- Ler as coordenadas dos objetos através de um ponto de referência
+- Armazenar esses dadods em forma de matriz
+- Localizar a posição do observador
+- Calcular o vetor normal de cada face do objeto
+- Calcular o vetor da linha de visibilidade para cada face do objeto
+- Realizar a verificação de visibilidade
+  - Se maior que 0, a face estará visível
+  - Se menor que 0, a face estará invisível
+- Definir os cantos do objeto e armazená-los  de forma matricial
+- Verificar os cantos visíveis de acordo com seu posicionamento
+- Tracejar arestas das faces visíveis
+
+## Ray tracing
 
 O raytracing fica considerando os raios de luz que colidem com superfícies.
 
