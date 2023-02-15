@@ -15,6 +15,8 @@ Semestre: 2022/E - 2023/01~2023/02
 
 Para sermos capaz de enxergarmos as cores, é necessário que a luz venha de alguma fonte e alcance os nossos olhos. Ela então alcança a retina que processa a luz como uma imagem.
 
+<img src="Cap5-images/eyeAnatomy.gif">
+
 ### Retina e receptores de ondas
 
 Nossa retina possui diversas células específicas para processar a luz de diversas formas chamadas fotorreceptores. As mais relevantes para a percepção luminosa são os cones e os bastonetes. O primeiro percebe os tipos de cores e o segundo lida com situações de pouca luminosidade.
@@ -23,6 +25,8 @@ Nossa retina possui diversas células específicas para processar a luz de diver
 
 Considerando que aqui estamos querendo explicar o fenômeno das cores, deixaremos de lado os bastonentes em prol de uma explicação mais detalhada dos cones.
 
+<img src="Cap5-images/rodsCones.jfif">
+
 Temos 3 tipos de cones, cada um deles responsável por uma faixa de cores, sendo elas vermelho, verde e azul.
 
 ## Cores aditivas: RGB
@@ -30,6 +34,8 @@ Temos 3 tipos de cones, cada um deles responsável por uma faixa de cores, sendo
 Como forma de representar e quantificar as cores é utilizado o sistema RGB, sigla para as cores *Red* (Vermelho), *Green* (Verde) e *Blue* (Azul). Entre elas é possível haver misturas aditivas com o objetivo de criar novas cores.
 
 Por exemplo: ao misturarmos vermelho e verde em igual proporção, teremos o amarelo. Se misturarmos verde e azul, obtemos o ciano. Se misturarmos vermelho, verde e azul obtemos o branco. Ao tirarmos as três, obtemos o preto, ou seja, a ausência de cores.
+
+<img src="Cap5-images/RGB.gif">
 
 Isso se mostra verdadeiro no caso de misturas de cores luminosas. Ao lidarmos com a mistura de pigmentos, ao misturarmos as três cores, a cor resultante, ao invés de branco, é o preto.
 
