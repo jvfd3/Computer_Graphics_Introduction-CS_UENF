@@ -1,15 +1,25 @@
-# Representação e Modelagem - WIP
+# Representação e Modelagem
 
 Aluno: João Vítor Fernandes Dias
 Professor: Luis Antonio Rivera Escriba
 
-## Representação e Modelagem
+<!--
+Já tá semi pronto feito em aula.
+
+Comecei:    15/02/23 -  18h27
+Finalizei:  15/02/23 -  ...
+Duração:                
+-->
+
+## Introdução
 
 Para realizar uma simples animação, muitos polígonos são criados e precisam ser guardados e manipulados. Cada um deles sofrem inúmeros cálculos para computar qual o seu comportamento esperado. Para lidar com isso tudo, é necessário haver um armazenamento apropriado e também eficiência suficiente para realizar os cômputos em tempo adequado.
 
 À medida em que o poder de processamento aumenta, acaba havendo a capacidade do desenvolvimento de novas simulações gráficas ainda mais realísticas.
 
-<!-- [Se vem o urso, sinal de que ele tá sendo perseguido] -->
+<!--
+[Se vem o urso, sinal de que ele tá sendo perseguido]
+-->
 
 Para haver esta representação gráfica, é necessário primeiro haver a modelagem. Isto demanda do desenvolvedor muita intuição para alcançar a imagem final que visa representar. Além disso, demanda também conhecimento e experiência para que possa criar modelos de acordo com a realidade e uma boa percepção das pessoas que futuramente verão.
 
@@ -19,43 +29,56 @@ Cada vez que um objeto é criado ele surge com um Centro de Referência Local. C
 
 ## Sólidos Uni, Bi e Tridimensionais
 
-...
+Um sólido pode ser definido como um subconjunto fechado e limitado de um Espaço Euclidiano Tridimensional ($E^3$).
 
-Bidimensional:
+Tempos também as figuras bidimensionais como polígonos. E as curvas unidimensionais.
 
-os cálculos de produtos vetoriais sempre têm que ser de mesmo sinal, senão quer dizer que elee foi pra um lado que não deveria, logo, convexo, logo não sendo adequado
+**Observações:**
+
+Os cálculos de produtos vetoriais das faces sempre têm que ser de mesmo sinal, senão quer dizer que a face está voltada para uma região que não deveria, similar a um sólido convexo, logo não sendo considerado um sólido adequado
 
 Os ângulos internos não podem ser nem passar de 180°.
 
 ## Sólidos Realizáveis
 
-Klein Bottle: é realizável.
+Os sólidos realizáveis são aqueles que, ao seguir um determinado conjunto de propriedades, se aproxima de um sólido real.
 
-Propriedades:
+As propriedades são as seguintes:
 
-- Rígido
-- Finito
-- Homogêneo: Todos os pontos são exatamente iguais entre si.
-- Determinação dos limites: Conseguimos definir
-- Descritível
-- Operações fechadas
+- Rigizes: não varia sua forma nem posição de acordo com sua posição ou orientação
+<!-- Um tesseract então não seria rígido? Pois ele em 3D aparenta mudar de posição -->
+- Finitude: está contido em uma dimensão finita
+- Homogeneidade: Todos os pontos são exatamente iguais entre si e apresentam as mesmas características
+- Determinação dos limites: Os limites entre interior e exterior são identificáveis
+- Descritibilidade: possível de ser descrito segundo propriedades físicas, químicas, etc.
+- Operações fechadas: operações entre os objetos devem ser válidas.
+
+Obs.: Klein Bottle: é realizável.
 
 ## Formas de representação do objeto
 
-### alambrado
+Cada objeto pode ser representado de diversas formas diferentes. Abaixo são exemplificados algumas dessas formas.
+
+### Wireframe
 
 Uma das formas de representar o objeto é a forma "aramada". Neste caso, a visualização é composta apenas por arestas e vértices.
-A vantagem é que é rápido de exibir, entretanto, por haver poucas superfícies ilustradas, acaba havendo maior dificuldade para realizar operações como intercessão, visto que não é facilmente visualizável onde que a intercessão ocorre.
+A vantagem é que é rápido de exibir, entretanto, por haver poucas superfícies ilustradas, acaba havendo maior dificuldade para realizar operações como intercessão, visto que não é facilmente computável onde que a intercessão ocorre.
 
-### por faces
+### Faces
 
-Para um objeto ser 2-manifold é necessário que todas as partes dele tenham uma intercessão com algum outro. (clipping)
+Ao representarmos os objetos por faces limitantes, conseguimos obter superfícies fechadas e orientadas.
 
-### Faces poligonais
+Nela, as arestas são definidas pelos vértices que a limitam e quais são as duas faces com as quais ela se conecta.
 
-Tesselation (ou tiling): Cobrir uma área plana
+Para um objeto ser 2-manifold é necessário que ele não seja composto por dois objetos aparentes que estejam apenas costando entre si em um único ponto ou aresta.
 
-...
+#### Faces poligonais
+
+Nesta vertente, utilizam-se de polígonos definidos para gerar a figura.
+
+Pode-se utilizar essa propriedade para realizar o Tesselation (Tiling) que consistem em cobrir uma área plana utilizando estes polígonos.
+
+O benefício desse método é que ele apresenta maior facilidade para rendering, visto que com polígonos já pre definidos, há menor variedade de formas a serem computadas.
 
 ### Fórmula de Euler
 
